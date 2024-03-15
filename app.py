@@ -32,7 +32,7 @@ def checklist():
             BytesIO(pdf_data),
             mimetype='application/pdf',
             as_attachment=True,
-            attachment_filename='not_ok_items_report.pdf'
+            download_name='not_ok_items_report.pdf'
         )
     else:
         return render_template('checklist.html', items=checklist_items)
