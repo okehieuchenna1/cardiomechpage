@@ -29,7 +29,12 @@ def checklist():
         pdf_data = generate_pdf_report(not_ok_items)
 
         # Return a response with PDF file as attachment
-        return send_file(pdf_data, mimetype='application/pdf', as_attachment=True, attachment_filename='not_ok_items_report.pdf')
+        return send_file(
+            BytesIO(pdf_data),
+            mimetype='application/pdf',
+            as_attachment=True,
+            attachment_filename='not_ok_items_report.pdf'
+        )
     else:
         return render_template('checklist.html', items=checklist_items)
 
