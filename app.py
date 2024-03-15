@@ -40,7 +40,7 @@ def checklist():
 def generate_pdf_report(not_ok_items):
     # Check if there are any not-okay items
     if not not_ok_items:
-        return "No items identified as Not Ok."
+        return b"No items identified as Not Ok."  # Changed from a string to bytes-like object
 
     # Create a PDF report
     pdf_buffer = BytesIO()
@@ -57,6 +57,7 @@ def generate_pdf_report(not_ok_items):
     pdf_buffer.close()
 
     return pdf_data
+
 
 if __name__ == '__main__':
     app.run(debug=True)
