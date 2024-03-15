@@ -10,7 +10,7 @@
     <form method="post">
         {% for item in items %}
         <div>
-            <input type="radio" id="ok_{{ loop.index }}" name="status_{{ loop.index }}" value="Ok">
+            <input type="radio" id="ok_{{ loop.index }}" name="status_{{ loop.index }}" value="Ok" checked>
             <label for="ok_{{ loop.index }}">Ok</label>
 
             <input type="radio" id="not_ok_{{ loop.index }}" name="status_{{ loop.index }}" value="Not Ok">
