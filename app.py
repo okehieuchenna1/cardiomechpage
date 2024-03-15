@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_file
+from io import BytesIO
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Table
@@ -25,10 +26,10 @@ def checklist():
         not_ok_items = [item for item, status in zip(checklist_items, statuses) if status == 'Not Ok']
 
         # Generate PDF report
-        generate_pdf_report(not_ok_items)
+        pdf_data = generate_pdf_report(not_ok_items)
 
-        # Return a response
-        return "PDF report generated successfully!"
+        # Return a response with PDF file as attachment
+        return send_file(pdf_data, attachment_filename='not_ok_items_report.pdf', as_attachment=True)
     else:
         return render_template('checklist.html', items=checklist_items)
 
@@ -38,8 +39,8 @@ def generate_pdf_report(not_ok_items):
         return "No items identified as Not Ok."
 
     # Create a PDF report
-    pdf_filename = "not_ok_items_report.pdf"
-    doc = SimpleDocTemplate(pdf_filename, pagesize=letter)
+    pdf_buffer = BytesIO()
+    doc = SimpleDocTemplate(pdf_buffer, pagesize=letter)
     elements = []
 
     # Add title
@@ -48,6 +49,10 @@ def generate_pdf_report(not_ok_items):
 
     # Build PDF
     doc.build(elements)
+    pdf_data = pdf_buffer.getvalue()
+    pdf_buffer.close()
+
+    return pdf_data
 
 if __name__ == '__main__':
     app.run(debug=True)
