@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Inspection Checklist</title>
+</head>
+<body>
+    <h1>Vehicle Inspection Checklist</h1>
+    <form method="post">
+        {% for item in items %}
+        <div>
+            <input type="checkbox" id="{{ loop.index }}" name="item" value="{{ item }}">
+            <label for="{{ loop.index }}">{{ item }}</label>
+            <br>
+            <textarea name="comment" placeholder="Enter comment here"></textarea>
+            <hr>
+        </div>
+        {% endfor %}
+        <button type="submit">Generate Report</button>
+    </form>
+</body>
+</html>
