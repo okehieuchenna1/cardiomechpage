@@ -41,7 +41,7 @@ def checklist():
 def generate_pdf_report(not_ok_items):
     # Check if there are any not-okay items
     if not not_ok_items:
-        return "No items identified as Not Ok."
+        return b"No items identified as Not Ok."
 
     # Create a PDF report
     pdf_buffer = BytesIO()
