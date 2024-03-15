@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, make_response
+from flask import Flask, render_template, request
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Table
@@ -33,6 +33,10 @@ def checklist():
         return render_template('checklist.html', items=checklist_items)
 
 def generate_pdf_report(not_ok_items):
+    # Check if there are any not-okay items
+    if not not_ok_items:
+        return "No items identified as Not Ok."
+
     # Create a PDF report
     pdf_filename = "not_ok_items_report.pdf"
     doc = SimpleDocTemplate(pdf_filename, pagesize=letter)
