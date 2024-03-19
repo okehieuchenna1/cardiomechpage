@@ -19,16 +19,14 @@ h1 {
 }
 
 .checklist-item {
-    margin-bottom: 20px; /* Increase margin for better separation */
-}
-
-.item-description {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .status-label {
     display: inline-block;
-    margin-right: 10px; /* Add margin between radio options */
+    width: 100px; /* Adjust width for symmetry */
+    text-align: center; /* Center align the labels */
+    margin-right: 20px; /* Add margin between the labels */
 }
 
 .comment {
