@@ -17,10 +17,10 @@
                 </div>
                 <div class="options">
                     <label class="status-label">
-                        <input type="radio" name="status" value="Ok" checked> Ok
+                        <input type="radio" id="ok_{{ loop.index }}" name="status_{{ loop.index }}" value="Ok" checked>
                     </label>
                     <label class="status-label">
-                        <input type="radio" name="status" value="Not Ok"> Not Ok
+                        <input type="radio" id="not_ok_{{ loop.index }}" name="status_{{ loop.index }}" value="Not Ok">
                     </label>
                 </div>
                 <div class="comment">
