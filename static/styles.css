@@ -19,16 +19,11 @@ h1 {
 }
 
 .checklist-item {
-    margin-bottom: 20px;
-}
-
-.status-label {
-    display: block;
     margin-bottom: 10px;
 }
 
-.status-label input {
-    margin-right: 10px;
+.status-label {
+    display: inline-block;
 }
 
 .comment textarea {
