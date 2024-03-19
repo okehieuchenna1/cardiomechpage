@@ -7,11 +7,11 @@ app = Flask(__name__)
 
 # Sample checklist items
 checklist_items = [
-    "Check engine oil level",
-    "Inspect brake pads",
-    "Check tire pressure",
-    "Inspect headlights",
-    "Check windshield wipers"
+    "Engine Oil Level",
+    "Brake Pads",
+    "Tire Pressure",
+    "Headlights",
+    "Windshield wipers"
 ]
 
 @app.route('/', methods=['GET', 'POST'])
