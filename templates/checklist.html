@@ -12,15 +12,13 @@
         <form method="post">
             {% for item in items %}
             <div class="checklist-item">
-                <p>{{ item }}</p>
-                <div class="options">
-                    <label class="status-label">
-                        <input type="radio" name="status" value="Ok" checked> Ok
-                    </label>
-                    <label class="status-label">
-                        <input type="radio" name="status" value="Not Ok"> Not Ok
-                    </label>
-                </div>
+                <label class="status-label">
+                    <input type="radio" name="status" value="Ok" checked> Ok
+                </label>
+                <label class="status-label">
+                    <input type="radio" name="status" value="Not Ok"> Not Ok
+                </label>
+                {{ item }}
                 <div class="comment">
                     <textarea name="comment" placeholder="Comment"></textarea>
                 </div>
