@@ -19,21 +19,19 @@ h1 {
 }
 
 .checklist-item {
-    margin-bottom: 20px;
-    display: flex; /* Use flexbox for alignment */
-    align-items: center; /* Center items vertically */
-}
-
-.item-description {
-    flex: 1; /* Allow item description to grow */
+    margin-bottom: 10px;
 }
 
 .status-label {
-    margin-left: 20px; /* Add margin between item description and options */
+    display: inline-block;
 }
 
-.comment {
-    margin-top: 10px;
+.comment textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .button {
