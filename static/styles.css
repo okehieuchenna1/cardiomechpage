@@ -20,13 +20,16 @@ h1 {
 
 .checklist-item {
     margin-bottom: 20px;
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+}
+
+.item-description {
+    flex: 1; /* Allow item description to grow */
 }
 
 .status-label {
-    display: inline-block;
-    width: 100px; /* Adjust width for symmetry */
-    text-align: center; /* Center align the labels */
-    margin-right: 20px; /* Add margin between the labels */
+    margin-left: 20px; /* Add margin between item description and options */
 }
 
 .comment {
