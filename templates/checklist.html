@@ -3,28 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehicle Inspection Checklist</title>
+    <title>Mechanic Checklist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #3185FC; /* Use the specified color code for headings */
+        }
+
+        .checklist-item {
+            margin-bottom: 10px;
+        }
+
+        .button {
+            background-color: #3185FC; /* Use the specified color code for buttons */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #1f65d6; /* Darken the color on hover */
+        }
+    </style>
 </head>
 <body>
-    <h1>Vehicle Inspection Checklist</h1>
-    <form method="post">
-        {% for item in items %}
-        <div>
-            <input type="radio" id="ok_{{ loop.index }}" name="status_{{ loop.index }}" value="Ok" checked>
-            <label for="ok_{{ loop.index }}">Ok</label>
-
-            <input type="radio" id="not_ok_{{ loop.index }}" name="status_{{ loop.index }}" value="Not Ok">
-            <label for="not_ok_{{ loop.index }}">Not Ok</label>
-
-            <span>{{ item }}</span>
-
-            <br>
-            <textarea name="comment_{{ loop.index }}" placeholder="Enter comment here"></textarea>
-            <hr>
-        </div>
-        {% endfor %}
-        <button type="submit">Generate Report</button>
-    </form>
+    <div class="container">
+        <h1>Mechanic Checklist</h1>
+        <form method="post">
+            {% for item in items %}
+            <div class="checklist-item">
+                <label>
+                    <input type="radio" name="status" value="Ok" checked> {{ item }}
+                </label>
+                <label>
+                    <input type="radio" name="status" value="Not Ok"> Not Ok
+                </label>
+                <textarea name="comment" placeholder="Comment"></textarea>
+            </div>
+            {% endfor %}
+            <button type="submit" class="button">Generate Report</button>
+        </form>
+    </div>
 </body>
 </html>
-
