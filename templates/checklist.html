@@ -9,21 +9,23 @@
 <body>
     <div class="container">
         <h1>Mechanic Checklist</h1>
-        <form method="post">
-            {% for item in items %}
-            <div class="checklist-item">
+        {% for item in items %}
+        <div class="checklist-item">
+            <p class="item-description">{{ item }}</p>
+            <div class="options">
                 <label class="status-label">
                     <input type="radio" name="status" value="Ok" checked> Ok
                 </label>
                 <label class="status-label">
                     <input type="radio" name="status" value="Not Ok"> Not Ok
                 </label>
-                {{ item }}
-                <div class="comment">
-                    <textarea name="comment" placeholder="Comment"></textarea>
-                </div>
             </div>
-            {% endfor %}
+            <div class="comment">
+                <textarea name="comment" placeholder="Comment"></textarea>
+            </div>
+        </div>
+        {% endfor %}
+        <form method="post">
             <button type="submit" class="button">Generate Report</button>
         </form>
     </div>
